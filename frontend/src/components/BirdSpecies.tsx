@@ -1,4 +1,4 @@
-import BirdCard from "./BirdCard"
+import BirdCard from "./BirdCard";
 
 function BirdSpecies() {
   return (
@@ -57,13 +57,30 @@ function BirdSpecies() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <BirdCard />
-          <BirdCard />
-          <BirdCard />
+          <BirdCard
+            name="Vörösbegy"
+            latinName="Erithacus rubecula"
+            description="A vörösbegy Európa egyik legismertebb énekesmadara, jellegzetes narancsvörös mellkasáról könnyen felismerhető."
+            image=""
+          />
+
+          <BirdCard
+            name="Széncinege"
+            latinName="Parus major"
+            description="A széncinege gyakori erdei és városi madár, amely könnyen felismerhető fekete fejéről és sárga hasáról."
+            image=""
+          />
+
+          <BirdCard
+            name="Fekete rigó"
+            latinName="Turdus merula"
+            description="A fekete rigó gyakori madár a kertekben és parkokban. A hím fekete tollazatú, sárga csőrű."
+            image=""
+          />
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default BirdSpecies
+export default BirdSpecies;
