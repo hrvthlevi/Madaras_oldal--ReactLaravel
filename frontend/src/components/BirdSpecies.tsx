@@ -1,3 +1,5 @@
+import BirdCard from "./BirdCard"
+
 function BirdSpecies() {
   return (
     <section className="py-12">
@@ -16,6 +18,7 @@ function BirdSpecies() {
           provident laudantium velit quod voluptatum dolores mollitia error
           doloribus nemo. Mollitia, distinctio?
         </p>
+
         <div className="mt-8 max-w-xl">
           <input
             className="w-full rounded-card border border-sand bg-white px-5 py-4 text-sm text-text-primary outline-none transition-colors focus:border-sage"
@@ -23,106 +26,44 @@ function BirdSpecies() {
             placeholder="Keress egy madárfajt..."
           />
         </div>
+
         <div className="mt-6 flex flex-wrap gap-3">
-          <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
+          <button className="rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors">
             Összes madár
           </button>
+
           <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
             Erdei madarak
           </button>
+
           <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
             Vízi madarak
           </button>
+
           <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
             Városi madarak
           </button>
+
           <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
             Ragadozó madarak
           </button>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <article className="overflow-hidden rounded-card bg-white shadow-card transition-transform hover:-translate-y-1">
-            <div className="h-56 overflow-hidden bg-mist">
-              <img
-                src=""
-                alt="Vörösbegy"
-                className="h-full w-full object-cover"
-              />
-            </div>
 
-            <div className="p-6">
-              <h2 className="font-display text-2xl font-semibold text-text-primary">
-                Vörösbegy
-              </h2>
+        <div className="mt-8 flex items-center justify-between">
+          <p className="text-sm text-text-secondary">
+            Összesen{" "}
+            <span className="font-medium text-text-primary">3 madárfaj</span>
+          </p>
+        </div>
 
-              <h3 className="mt-1 text-sm italic text-text-secondary">
-                nem tudom mi a latin neve
-              </h3>
-
-              <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Nostrum totam mollitia dolores nesciunt deleniti officia
-                adipisci excepturi suscipit similique voluptatum fugit
-                dignissimos, eos nemo tenetur nihil natus a aut et.
-              </p>
-            </div>
-          </article>
-          <article className="overflow-hidden rounded-card bg-white shadow-card transition-transform hover:-translate-y-1">
-            <div className="h-56 overflow-hidden bg-mist">
-              <img
-                src=""
-                alt="Vörösbegy"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="p-6">
-              <h2 className="font-display text-2xl font-semibold text-text-primary">
-                Vörösbegy
-              </h2>
-
-              <h3 className="mt-1 text-sm italic text-text-secondary">
-                nem tudom mi a latin neve
-              </h3>
-
-              <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Nostrum totam mollitia dolores nesciunt deleniti officia
-                adipisci excepturi suscipit similique voluptatum fugit
-                dignissimos, eos nemo tenetur nihil natus a aut et.
-              </p>
-            </div>
-          </article>
-          <article className="overflow-hidden rounded-card bg-white shadow-card transition-transform hover:-translate-y-1">
-            <div className="h-56 overflow-hidden bg-mist">
-              <img
-                src=""
-                alt="Vörösbegy"
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="p-6">
-              <h2 className="font-display text-2xl font-semibold text-text-primary">
-                Vörösbegy
-              </h2>
-
-              <h3 className="mt-1 text-sm italic text-text-secondary">
-                nem tudom mi a latin neve
-              </h3>
-
-              <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Nostrum totam mollitia dolores nesciunt deleniti officia
-                adipisci excepturi suscipit similique voluptatum fugit
-                dignissimos, eos nemo tenetur nihil natus a aut et.
-              </p>
-            </div>
-          </article>
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <BirdCard />
+          <BirdCard />
+          <BirdCard />
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default BirdSpecies;
+export default BirdSpecies
