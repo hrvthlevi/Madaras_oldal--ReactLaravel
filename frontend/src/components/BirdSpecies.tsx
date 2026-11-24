@@ -1,6 +1,32 @@
 import BirdCard from "./BirdCard";
 
 function BirdSpecies() {
+  const birds = [
+    {
+      id: 1,
+      name: "Vörösbegy",
+      latinName: "Erithacus rubecula",
+      description:
+        "A vörösbegy Európa egyik legismertebb énekesmadara, jellegzetes narancsvörös mellkasáról könnyen felismerhető.",
+      image: "",
+    },
+    {
+      id: 2,
+      name: "Széncinege",
+      latinName: "Parus major",
+      description:
+        "A széncinege gyakori erdei és városi madár, amely könnyen felismerhető fekete fejéről és sárga hasáról.",
+      image: "",
+    },
+    {
+      id: 3,
+      name: "Fekete rigó",
+      latinName: "Turdus merula",
+      description:
+        "A fekete rigó gyakori madár a kertekben és parkokban. A hím fekete tollazatú, sárga csőrű.",
+      image: "",
+    },
+  ];
   return (
     <section className="py-12">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -57,26 +83,15 @@ function BirdSpecies() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <BirdCard
-            name="Vörösbegy"
-            latinName="Erithacus rubecula"
-            description="A vörösbegy Európa egyik legismertebb énekesmadara, jellegzetes narancsvörös mellkasáról könnyen felismerhető."
-            image=""
-          />
-
-          <BirdCard
-            name="Széncinege"
-            latinName="Parus major"
-            description="A széncinege gyakori erdei és városi madár, amely könnyen felismerhető fekete fejéről és sárga hasáról."
-            image=""
-          />
-
-          <BirdCard
-            name="Fekete rigó"
-            latinName="Turdus merula"
-            description="A fekete rigó gyakori madár a kertekben és parkokban. A hím fekete tollazatú, sárga csőrű."
-            image=""
-          />
+          {birds.map((bird) => (
+            <BirdCard
+              key={bird.id}
+              name={bird.name}
+              latinName={bird.latinName}
+              description={bird.description}
+              image={bird.image}
+            />
+          ))}
         </div>
       </div>
     </section>
