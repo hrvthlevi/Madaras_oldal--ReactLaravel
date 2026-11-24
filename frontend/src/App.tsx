@@ -1,3 +1,4 @@
+import BirdFacts from './components/BirdFacts';
 import FeatureCards from './components/FeatureCards';
 import FeaturedBirds from './components/FeaturedBirds';
 import Hero from './components/Hero';
@@ -12,6 +13,7 @@ function App() {
         <Hero />
         <FeatureCards />
         <FeaturedBirds />
+        <BirdFacts/>
       </main>
     </>
   )
