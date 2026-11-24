@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -18,11 +18,11 @@
 
   /* Border radius */
   --radius-card: 1rem;
-  --radius-selection: 1.5rem;
+  --radius-section: 1.5rem;
 
   /* Shadows */
   --shadow-soft: 0 4px 24px rgba(39, 48, 41, 0.06);
-  --shadow-card: 0 2px 12px rgba(39. 48. 41. 0.004);
+  --shadow-card: 0 2px 12px rgba(39, 48, 41, 0.04);
 }
 
 /* Global styles */
@@ -41,7 +41,7 @@ body {
   min-height: 100vh;
   background-color: var(--color-ivory);
   color: var(--color-text-primary);
-  font-family: Arial, sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 button,

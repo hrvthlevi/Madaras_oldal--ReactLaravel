@@ -10,6 +10,7 @@ function BirdSpecies() {
       description:
         "A vörösbegy Európa egyik legismertebb énekesmadara, jellegzetes narancsvörös mellkasáról könnyen felismerhető.",
       image: "",
+      category: "Erdei madarak",
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ function BirdSpecies() {
       description:
         "A széncinege gyakori erdei és városi madár, amely könnyen felismerhető fekete fejéről és sárga hasáról.",
       image: "",
+      category: "Erdei madarak",
     },
     {
       id: 3,
@@ -26,12 +28,17 @@ function BirdSpecies() {
       description:
         "A fekete rigó gyakori madár a kertekben és parkokban. A hím fekete tollazatú, sárga csőrű.",
       image: "",
+      category: "Városi madarak",
     },
   ];
   const [searchTerm, setSearchTerm] = useState("");
-  const filteredBirds = birds.filter((bird) =>
-  bird.name.toLowerCase().includes(searchTerm.toLowerCase()),
-)
+  const [selectedCategory, setSelectedCategory] = useState("Összes madár");
+  const filteredBirds = birds.filter(
+    (bird) =>
+      bird.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (selectedCategory === "Összes madár" ||
+        bird.category === selectedCategory),
+  );
   return (
     <section className="py-12">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -61,23 +68,54 @@ function BirdSpecies() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <button className="rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors">
+          <button
+            onClick={() => setSelectedCategory("Összes madár")}
+            className={
+              selectedCategory === "Összes madár"
+                ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
+                : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
+            }
+          >
             Összes madár
           </button>
 
-          <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
+          <button
+            onClick={() => setSelectedCategory("Erdei madarak")}
+            className={
+              selectedCategory === "Erdei madarak"
+                ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
+                : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
+            }          >
             Erdei madarak
           </button>
 
-          <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
+          <button
+            onClick={() => setSelectedCategory("Vízi madarak")}
+            className={
+              selectedCategory === "Vízi madarak"
+                ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
+                : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
+            }          >
             Vízi madarak
           </button>
 
-          <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
+          <button
+            onClick={() => setSelectedCategory("Városi madarak")}
+            className={
+              selectedCategory === "Városi madarak"
+                ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
+                : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
+            }          >
             Városi madarak
           </button>
 
-          <button className="rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary">
+          <button
+            onClick={() => setSelectedCategory("Ragadozó madarak")}
+            className={
+              selectedCategory === "Ragadozó madarak"
+                ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
+                : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
+            }          >
             Ragadozó madarak
           </button>
         </div>
@@ -85,20 +123,29 @@ function BirdSpecies() {
         <div className="mt-8 flex items-center justify-between">
           <p className="text-sm text-text-secondary">
             Összesen{" "}
-            <span className="font-medium text-text-primary">3 madárfaj</span>
+            <span className="font-medium text-text-primary">
+              {filteredBirds.length} madárfaj
+            </span>
           </p>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredBirds.map((bird) => (
-            <BirdCard
-              key={bird.id}
-              name={bird.name}
-              latinName={bird.latinName}
-              description={bird.description}
-              image={bird.image}
-            />
-          ))}
+          {filteredBirds.length > 0 ? (
+            filteredBirds.map((bird) => (
+              <BirdCard
+                key={bird.id}
+                name={bird.name}
+                latinName={bird.latinName}
+                description={bird.description}
+                image={bird.image}
+                category={bird.category}
+              />
+            ))
+          ) : (
+            <p className="col-span-full py-12 text-center text-text-secondary">
+              Nem találtunk a keresésnek megfelelő madárfajt.
+            </p>
+          )}
         </div>
       </div>
     </section>
