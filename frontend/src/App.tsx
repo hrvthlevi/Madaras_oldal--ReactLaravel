@@ -1,6 +1,7 @@
 import BirdFacts from './components/BirdFacts';
 import FeatureCards from './components/FeatureCards';
 import FeaturedBirds from './components/FeaturedBirds';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar'
 
@@ -14,6 +15,7 @@ function App() {
         <FeatureCards />
         <FeaturedBirds />
         <BirdFacts/>
+        <Footer />
       </main>
     </>
   )
