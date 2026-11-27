@@ -1,36 +1,8 @@
 import { useState } from "react";
 import BirdCard from "../components/BirdCard";
+import { birds } from "../data/birds";
 
 function BirdSpecies() {
-  const birds = [
-    {
-      id: 1,
-      name: "Vörösbegy",
-      latinName: "Erithacus rubecula",
-      description:
-        "A vörösbegy Európa egyik legismertebb énekesmadara, jellegzetes narancsvörös mellkasáról könnyen felismerhető.",
-      image: "",
-      category: "Erdei madarak",
-    },
-    {
-      id: 2,
-      name: "Széncinege",
-      latinName: "Parus major",
-      description:
-        "A széncinege gyakori erdei és városi madár, amely könnyen felismerhető fekete fejéről és sárga hasáról.",
-      image: "",
-      category: "Erdei madarak",
-    },
-    {
-      id: 3,
-      name: "Fekete rigó",
-      latinName: "Turdus merula",
-      description:
-        "A fekete rigó gyakori madár a kertekben és parkokban. A hím fekete tollazatú, sárga csőrű.",
-      image: "",
-      category: "Városi madarak",
-    },
-  ];
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Összes madár");
   const filteredBirds = birds.filter(
@@ -85,7 +57,8 @@ function BirdSpecies() {
               selectedCategory === "Erdei madarak"
                 ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
                 : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
-            }          >
+            }
+          >
             Erdei madarak
           </button>
 
@@ -95,7 +68,8 @@ function BirdSpecies() {
               selectedCategory === "Vízi madarak"
                 ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
                 : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
-            }          >
+            }
+          >
             Vízi madarak
           </button>
 
@@ -105,7 +79,8 @@ function BirdSpecies() {
               selectedCategory === "Városi madarak"
                 ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
                 : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
-            }          >
+            }
+          >
             Városi madarak
           </button>
 
@@ -115,7 +90,8 @@ function BirdSpecies() {
               selectedCategory === "Ragadozó madarak"
                 ? "rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-white transition-colors"
                 : "rounded-full border border-sand px-5 py-2.5 text-sm text-text-secondary transition-colors hover:border-sage hover:bg-mist hover:text-text-primary"
-            }          >
+            }
+          >
             Ragadozó madarak
           </button>
         </div>
@@ -133,7 +109,7 @@ function BirdSpecies() {
           {filteredBirds.length > 0 ? (
             filteredBirds.map((bird) => (
               <BirdCard
-                key={bird.id}
+                key={bird.slug}
                 name={bird.name}
                 latinName={bird.latinName}
                 description={bird.description}
